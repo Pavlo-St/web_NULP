@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Резервування аудиторій</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Резервування аудиторій</h1>
+		<nav>
+			<ul>
+				<li><a href="#">Головна</a></li>
+				<li><a href="#">Аудиторії</a></li>
+				<li><a href="#">Зареєструватися</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="container">
+			<ul class="list">
+			  <li><img src="image1.jpg"></li>
+			  <li><img src="image2.jpg"></li>
+			  <li><img src="image3.jpg"></li>
+			  <li><img src="image4.jpg"></li>
+			  <li><img src="image5.jpg"></li>
+			  <li><img src="image6.jpg"></li>
+			</ul>
+		  </div>
+		  
+		<section>
+			<h2>Резервування аудиторій</h2>
+			<form action="#" method="post">
+				<label for="name">Ім'я:</label>
+				<input type="text" id="name" name="name" required>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" required>
+				<label for="room">Аудиторія:</label>
+				<select id="room" name="room" required>
+					<option value="">Оберіть аудиторію</option>
+					<option value="1">Аудиторія 1</option>
+					<option value="2">Аудиторія 2</option>
+					<option value="3">Аудиторія 3</option>
+					<option value="4">Аудиторія 4</option>
+				</select>
+				<label for="date">Дата:</label>
+				<input type="date" id="date" name="date" required>
+				<label for="start_time">Час початку:</label>
+				<input type="time" id="start_time" name="start_time" required>
+				<label for="end_time">Час закінчення:</label>
+				<input type="time" id="end_time" name="end_time" required>
+				<button type="submit">Забронювати</button>
+			</form>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; 2023 Резервування аудиторій</p>
+	</footer>
+</body>
+</html>
