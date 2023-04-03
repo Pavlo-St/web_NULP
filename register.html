@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Реєстрація користувача</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="reg.css">
+  </head>
+  <body>
+    <h1>Реєстрація користувача</h1>
+    <form action="submit.php" method="post">
+      <label for="name">Ім'я:</label>
+      <input type="text" name="name" id="name" required><br><br>
+
+      <label for="email">Електронна пошта:</label>
+      <input type="email" name="email" id="email" required><br><br>
+
+      <label for="password">Пароль:</label>
+      <input type="password" name="password" id="password" required><br><br>
+
+      <label for="confirm_password">Підтвердження пароля:</label>
+      <input type="password" name="confirm_password" id="confirm_password" required><br><br>
+
+      <input type="submit" value="Зареєструватися">
+      <input type="submit" value="Увійти в існуючий аккаунт" onclick="window.location.href='login.html'">
+      <input type="submit" value="Головна" onclick="window.location.href='index.html'">
+    </form>
+  </body>
+</html>
