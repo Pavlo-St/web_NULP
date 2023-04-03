@@ -31,7 +31,7 @@ body {
   }
   
   input[type="submit"] {
-	background-color: #4CAF50;
+	background-color: #616161;
 	color: #ffffff;
 	padding: 10px;
 	border: none;
@@ -40,6 +40,6 @@ body {
   }
   
   input[type="submit"]:hover {
-	background-color: #3e8e41;
+	background-color: #616161;
   }
   
