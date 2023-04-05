@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Резервування аудиторій</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="reserv.css">
+</head>
+<body>
+	<header>
+		<h1>Резервування аудиторій</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Головна</a></li>
+				<li><a href="reserv.html">Зарезервувати кімнату</a></li>
+				<li><a href="login.html">Увійти</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+        
+		<section>
+			<h2>Резервування аудиторій</h2>
+			<form action="#" method="post">
+				<label for="room">Аудиторія:</label>
+				<select id="room" name="room" required>
+					<option value="">Оберіть аудиторію</option>
+					<option value="1">Аудиторія 1</option>
+					<option value="2">Аудиторія 2</option>
+					<option value="3">Аудиторія 3</option>
+					<option value="4">Аудиторія 4</option>
+					<option value="4">Аудиторія 5</option>
+					<option value="4">Аудиторія 6</option>
+				</select>
+				<label for="date">Дата:</label>
+				<input type="date" id="date" name="date" required>
+				<label for="start_time">Час початку:</label>
+				<input type="time" id="start_time" name="start_time" required>
+				<label for="end_time">Час закінчення:</label>
+				<input type="time" id="end_time" name="end_time" required>
+				<button type="submit">Забронювати</button>
+			</form>
+		</section>
+	</main>
+	<footer>
+		<p>&copy; Усі права захищено 2023 </p>
+	</footer>
+</body>
+</html>

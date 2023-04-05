@@ -89,43 +89,39 @@ button[type="submit"]:hover {
 	background-color: #555;
 }
 
+
 footer {
-	background-color: #ccc;
 	padding: 10px;
+	background-color: #616161;
+	color: #ffffff;
 	text-align: center;
-}
+	bottom: 0;
+	width: 100%;
+  }
 
 /* Адаптивні стилі */
 
 /* Стилі для пристроїв з шириною екрану менше 768px */
 @media (max-width: 767px) {
 	header {
-		padding: 5px;
-	}
-
-	header h1 {
-		font-size: 24px;
-		margin-bottom: 5px;
-	}
-
-	nav {
-		display: none;
-		position: relative;
-	}
-
-	nav ul {
-		display: block;
-		position: absolute;
-		top: 100%;
-		left: 0;
-		width: 100%;
-		background-color: #333;
-	}
-
-	nav li {
-		display: block;
-		margin: 0;
-	}
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	  }
+	
+	  nav {
+		margin-top: 20px;
+	  }
+	
+	  nav ul {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	  }
+	
+	  nav li {
+		margin: 10px 0;
+	  }
 
 	nav a {
 		display: block;
@@ -182,3 +178,7 @@ footer {
 		margin: 0;
 	}
 
+	footer {
+		padding: 10px;
+	}
+}
