@@ -9,8 +9,6 @@
 
 body {
 	font-family: Arial, sans-serif;
-	background-image: url(image7.jpg);
-	background-size: cover; 
 }
 
 header {
@@ -92,15 +90,26 @@ button[type="submit"]:hover {
 }
 
 
-footer {
-	padding: 10px;
-	background-color: #616161;
-	color: #ffffff;
-	text-align: center;
-	bottom: 0;
-	width: 100%;
-  }
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Мінімальна висота вікна браузера */
+}
 
+
+form {
+  flex-grow: 1; /* Форма розтягується, щоб зайняти весь вільний простір */
+}
+
+footer {
+    background-color: #616161;
+	color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 /* Адаптивні стилі */
 
 /* Стилі для пристроїв з шириною екрану менше 768px */
@@ -156,6 +165,34 @@ footer {
 	}
 }
 
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1rem;
+  }
+  
+  th,
+  td {
+	padding: 0.5rem;
+	text-align: left;
+  }
+  
+  th {
+	font-weight: bold;
+	background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+	background-color: #f2f2f2;
+  }
+  
+  @media (max-width: 768px) {
+	table {
+	  overflow-x: auto;
+	}
+  }
+  
+
 /* Стилі для пристроїв з шириною екрану від 768px до 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
 	header {
@@ -184,3 +221,5 @@ footer {
 		padding: 10px;
 	}
 }
+
+

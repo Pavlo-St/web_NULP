@@ -99,6 +99,34 @@ footer {
 	width: 100%;
   }
 
+  table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1rem;
+  }
+  
+  th,
+  td {
+	padding: 0.5rem;
+	text-align: left;
+  }
+  
+  th {
+	font-weight: bold;
+	background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+	background-color: #f2f2f2;
+  }
+  
+  @media (max-width: 768px) {
+	table {
+	  overflow-x: auto;
+	}
+  }
+  
+
 /* Адаптивні стилі */
 
 /* Стилі для пристроїв з шириною екрану менше 768px */
