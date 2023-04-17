@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+
 <head>
 	<title>Резервування аудиторій</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="test.css">
+	<link rel="stylesheet" href="css/reserv.css">
+	<script src="reserv.js"></script>
 </head>
+
 <body>
 	<header>
 		<h1>Резервування аудиторій</h1>
@@ -18,55 +20,55 @@
 		</nav>
 	</header>
 	<main>
-        
-<table>
-	<thead>
-		<tr>
-			<th>Номер аудиторії</th>
-			<th>Дата</th>
-			<th>Час початку</th>
-			<th>Час закінчення</th>
 
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>1</td>
-			<td>01.05.2023</td>
-			<td>12:00</td>
-			<td>18:40</td>
+		<table id="table">
+			<thead>
+				<tr>
+					<th>Номер аудиторії</th>
+					<th>Дата</th>
+					<th>Час початку</th>
+					<th>Час закінчення</th>
 
-			<td>
-				<button>Редагувати</button>
-				<button>Видалити</button>
-			</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>15.04.2023</td>
-			<td>10:00</td>
-			<td>12:00</td>
-		
-			<td>
-				<button>Редагувати</button>
-				<button>Видалити</button>
-			</td>
-		</tr>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>01.05.2023</td>
+					<td>12:00</td>
+					<td>18:40</td>
 
-		<tr>
-			<td>3</td>
-			<td>10.04.2023</td>
-			<td>18:00</td>
-			<td>20:00</td>
+					<td>
+						<button class="huy">Редагувати</button>
+						<button class="huy">Видалити</button>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>15.04.2023</td>
+					<td>10:00</td>
+					<td>12:00</td>
 
-			<td>
-				<button>Редагувати</button>
-				<button>Видалити</button>
-			</td>
-		</tr>
-</tbody>
-</table>
+					<td>
+						<button class="huy">Редагувати</button>
+						<button class="huy">Видалити</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>3</td>
+					<td>10-04-2023</td>
+					<td>18:00</td>
+					<td>20:00</td>
+
+					<td>
+						<button class='huy'>Редагувати</button>
+						<button class='huy'>Видалити</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 		<section>
 			<h2>Резервування аудиторій</h2>
 			<form action="#" method="post">
@@ -77,8 +79,8 @@
 					<option value="2">Аудиторія 2</option>
 					<option value="3">Аудиторія 3</option>
 					<option value="4">Аудиторія 4</option>
-					<option value="4">Аудиторія 5</option>
-					<option value="4">Аудиторія 6</option>
+					<option value="5">Аудиторія 5</option>
+					<option value="6">Аудиторія 6</option>
 				</select>
 				<label for="date">Дата:</label>
 				<input type="date" id="date" name="date" required>
@@ -86,14 +88,15 @@
 				<input type="time" id="start_time" name="start_time" required>
 				<label for="end_time">Час закінчення:</label>
 				<input type="time" id="end_time" name="end_time" required>
-				<button type="submit">Забронювати</button>
+				
+				<button onclick="addRow()" type="submit">Забронювати</button>
 			</form>
 		</section>
 	</main>
 	<footer>
+		
 		<p>&copy; Усі права захищено 2023 </p>
 	</footer>
 </body>
+
 </html>
-
-

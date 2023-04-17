@@ -1,0 +1,564 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Room Booking API",
+    "description": "Lab work 7 ",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "GetOneRoom": {
+        "type": "object",
+        "properties": {
+          "roomId": {
+            "type": "integer",
+            "example": 0
+          },
+          "state": {
+            "$ref": "#/components/schemas/RoomState"
+          }
+        }
+      },
+      "UserResponse": {
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string",
+            "example": "Pavlo_St"
+          },
+          "Name": {
+            "type": "string",
+            "example": "Pavlo"
+          },
+          "Surname": {
+            "type": "string",
+            "example": "Stetsiuk"
+          },
+          "Email": {
+            "type": "string",
+            "example": "pavlo.stetsiuk.kn.2021@lpnu.ua"
+          }
+        }
+      },
+      "CreateUserRequest": {
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string",
+            "example": "Pavlo_St"
+          },
+          "Name": {
+            "type": "string",
+            "example": "Pavlo"
+          },
+          "Surname": {
+            "type": "string",
+            "example": "Stetsiuk"
+          },
+          "Email": {
+            "type": "string",
+            "example": "pavlo.stetsiuk.kn.2021@lpnu.ua"
+          },
+          "Password": {
+            "type": "string",
+            "example": "qwerty"
+          }
+        }
+      },
+      "RoomState": {
+        "type": "string",
+        "enum": [
+          "reserved",
+          "available"
+        ]
+      },
+      "ReservationResponse": {
+        "type": "object",
+        "properties": {
+          "ReservationId": {
+            "type": "integer",
+            "example": 5
+          },
+          "RoomId": {
+            "type": "integer",
+            "example": 1
+          },
+          "UserId": {
+            "type": "integer",
+            "example": 1
+          },
+          "Date": {
+            "type": "string",
+            "example": "2022-10-01 15:30"
+          }
+        }
+      },
+      "AvailableRoomList": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "RoomId": {
+              "type": "integer",
+              "example": 0
+            },
+            "Size": {
+              "type": "string",
+              "example": "20x20"
+            },
+            "RoomState": {
+              "type": "string",
+              "example": "reserved"
+            }
+          }
+        }
+      },
+      "GetAllRooms": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "RoomId": {
+              "type": "integer",
+              "example": 0
+            },
+            "Size": {
+              "type": "string",
+              "example": "20x20"
+            }
+          }
+        }
+      },
+      "GetAvailableRooms": {
+        "type": "object",
+        "properties": {
+          "BeginTime": {
+            "type": "string",
+            "example": "2022-10-01 10:30"
+          },
+          "EndTime": {
+            "type": "string",
+            "example": "2022-10-01 15:30"
+          }
+        }
+      },
+      "ReservationRequestone": {
+        "type": "object",
+        "properties": {
+          "BeginTime": {
+            "type": "string",
+            "example": "2022-10-01 10:30"
+          },
+          "EndTime": {
+            "type": "string",
+            "example": "2022-10-01 15:30"
+          },
+          "UserId": {
+            "type": "integer",
+            "example": 0
+          },
+          "RoomId": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "ReservationRequest": {
+        "type": "object",
+        "properties": {
+          "ReservationId": {
+            "type": "integer",
+            "example": 5
+          },
+          "BeginTime": {
+            "type": "string",
+            "example": "2022-10-01 10:30"
+          },
+          "EndTime": {
+            "type": "string",
+            "example": "2022-10-01 15:30"
+          },
+          "RoomId": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "ErrorModel": {
+        "description": "Detailed information about the error that occurred during the operation.",
+        "properties": {
+          "operationId": {
+            "description": "Identifier of an operation.",
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "errors": {
+            "description": "Collection of the errors that occurred during the operation.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/user/{userId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get user by user id",
+        "operationId": "getUserById",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Delete user by user id",
+        "description": "",
+        "operationId": "deleteUserById",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reservation/create": {
+      "post": {
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "Create an reservation",
+        "description": "",
+        "operationId": "createReservation",
+        "requestBody": {
+          "description": "Created reservation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReservationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservationRequest"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reservation/rooms": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "Get all rooms",
+        "description": "",
+        "operationId": "GetAllRooms",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllRooms"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Register a user",
+        "description": "",
+        "operationId": "createUser",
+        "requestBody": {
+          "description": "Created user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reservation/get/{beginTime}/{endTime}/{roomId}": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "Check if this room is available",
+        "description": "",
+        "operationId": "GetAvailableRoom",
+        "parameters": [
+          {
+            "name": "beginTime",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "roomId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOneRoom"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reservation/rooms/{reservationId}": {
+      "put": {
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "Update reservation by reservation id",
+        "description": "",
+        "operationId": "updateReservationById",
+        "parameters": [
+          {
+            "name": "reservationId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update reservation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReservationRequestone"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservationResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Reservation"
+        ],
+        "summary": "Delete reservation by id",
+        "description": "",
+        "operationId": "deleteReservationById",
+        "parameters": [
+          {
+            "name": "reservationId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReservationResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,225 @@
+/* Загальні стилі */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+body {
+	font-family: Arial, sans-serif;
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+}
+
+header h1 {
+	margin: 0;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav a {
+	color: #fff;
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+}
+
+nav a:hover {
+	background-color: #555;
+}
+
+main {
+	padding: 10px;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+h2 {
+	margin-bottom: 10px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin-bottom: 5px;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+input,
+select {
+	display: block;
+	padding: 5px;
+	width: 100%;
+}
+
+button[type="submit"] {
+	background-color: #333;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	padding: 10px;
+}
+
+button[type="submit"]:hover {
+	background-color: #555;
+}
+
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Мінімальна висота вікна браузера */
+}
+
+
+form {
+  flex-grow: 1; /* Форма розтягується, щоб зайняти весь вільний простір */
+}
+
+footer {
+    background-color: #616161;
+	color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/* Адаптивні стилі */
+
+/* Стилі для пристроїв з шириною екрану менше 768px */
+@media (max-width: 767px) {
+	header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	  }
+	
+	  nav {
+		margin-top: 20px;
+	  }
+	
+	  nav ul {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	  }
+	
+	  nav li {
+		margin: 10px 0;
+	  }
+
+	nav a {
+		display: block;
+		padding: 5px;
+	}
+
+	nav a:hover {
+		background-color: #555;
+	}
+
+	main {
+		padding: 5px;
+	}
+
+	section {
+		margin-bottom: 10px;
+	}
+
+	h2 {
+		font-size: 20px;
+		margin-bottom: 5px;
+	}
+
+	button[type="submit"] {
+		padding: 5px;
+	}
+
+	footer {
+		padding: 5px;
+	}
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1rem;
+  }
+  
+  th,
+  td {
+	padding: 0.5rem;
+	text-align: left;
+  }
+  
+  th {
+	font-weight: bold;
+	background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+	background-color: #f2f2f2;
+  }
+  
+  @media (max-width: 768px) {
+	table {
+	  overflow-x: auto;
+	}
+  }
+  
+
+/* Стилі для пристроїв з шириною екрану від 768px до 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+	header {
+		padding: 10px;
+	}
+
+	header h1 {
+		font-size: 28px;
+		margin-bottom: 10px;
+	}
+
+	nav {
+		display: block;
+	}
+
+	nav ul {
+		display: block;
+	}
+
+	nav li {
+		display: inline-block;
+		margin: 0;
+	}
+
+	footer {
+		padding: 10px;
+	}
+}
+
+

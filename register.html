@@ -1,15 +1,24 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Реєстрація</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="reg.css">
+    <link rel="stylesheet" href="css/reg.css">
+    <script src="reg.js" defer></script>
   </head>
   <body>
     <h1>Реєстрація</h1>
-    <form action="submit.php" method="post">
+    <form method="#">
+      <label for="username">Ім'я користувача:</label>
+      <input type="text" name="username" id="username" required><br><br>
+
       <label for="name">Ім'я:</label>
       <input type="text" name="name" id="name" required><br><br>
+
+      <label for="surname">Прізвище:</label>
+      <input type="text" name="surname" id="surname" required><br><br>
 
       <label for="email">Електронна пошта:</label>
       <input type="email" name="email" id="email" required><br><br>
@@ -20,7 +29,7 @@
       <label for="confirm_password">Підтвердження пароля:</label>
       <input type="password" name="confirm_password" id="confirm_password" required><br><br>
 
-      <input type="submit" value="Зареєструватися">
+      <input id="regis" type="submit" value="Зареєструватися">
       <input type="submit" value="Увійти в існуючий аккаунт" onclick="window.location.href='login.html'">
       <input type="submit" value="Головна" onclick="window.location.href='index.html'">
     </form>

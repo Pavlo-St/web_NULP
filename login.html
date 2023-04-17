@@ -3,8 +3,9 @@
   <head>
     <title>Вхід користувача</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="reg.css">
+    <link rel="stylesheet" href="css/reg.css">
   </head>
+  <script src="log.js"></script>
   <body>
     <h1>Вхід</h1>
     <form action="submit.php" method="post">
@@ -14,7 +15,7 @@
       <label for="password">Пароль:</label>
       <input type="password" name="password" id="password" required><br><br>
 
-      <input type="submit" value="Увійти">
+      <input type="submit" value="Увійти" onclick="login()">
       <input type="submit" value="Створити аккаунт" onclick="window.location.href='register.html'">
       <input type="submit" value="Головна" onclick="window.location.href='index.html'">
     </form>
