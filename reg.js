@@ -44,5 +44,5 @@ function ajax(url, method, data, callback) {
 ajax("http://127.0.0.1:5000/user/register", "POST", formData, function(response) {
   console.log(response);
 })
-//registerUser();
+
 }

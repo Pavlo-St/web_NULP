@@ -7,14 +7,16 @@ document.querySelector('#resis').onclick = function(event) {
     const start_time = document.getElementById("start_time").value;
     const end_time = document.getElementById("end_time").value;
   
+    const id = 1;
+    const userid = 1;
 
-  
+
     // Створюємо об'єкт з даними форми
     const formData = {
-        ReservationId : getRandomInt(10000),
+        ReservationId : id,
         BeginTime : date,
         EndTime : date,
-        UserId : currentUser.UserId,
+        UserId : userid,
         RoomId : room
     };
   

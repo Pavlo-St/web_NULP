@@ -1,3 +1,4 @@
+import flask
 from sqlalchemy import Column, ForeignKey, Integer, String, create_engine, and_
 from flask import Flask, request, jsonify, json, make_response
 from flask_marshmallow import Marshmallow
@@ -41,12 +42,12 @@ from flask_cors import CORS
 
 @app.after_request
 def after_request(response):
+
     header = response.headers
     header['Access-Control-Allow-Origin'] = '*'
-    header['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
+    header['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PUT, DELETE'
     header['Access-Control-Allow-Headers'] = 'content-type'
     return response
-
 
 
 
@@ -125,6 +126,7 @@ rooms_schema = RoomSchema(many=True)
 # USER METHODS
 
 
+
 @app.route("/user/register", methods=["POST"])
 def createUser():
     try:
@@ -170,10 +172,11 @@ def deleteUserById(userId):
 
 # RESERVATION METHODS
 @app.route("/reservation/create", methods=["POST"])
-@auth.login_required
+#@auth.login_required
 def createReservation():
     try:
-        currentUser = auth.current_user()
+        #currentUser = auth.current_user()
+        currentUser = request.json['UserId']
         ReservationId = request.json['ReservationId']
         BeginTime = request.json['BeginTime']
         EndTime = request.json['EndTime']
@@ -182,7 +185,8 @@ def createReservation():
         new_reservation = Reservation(ReservationId=ReservationId,
                                       BeginTime=datetime.strptime(BeginTime, "%Y-%m-%d %H:%M"),
                                       EndTime=datetime.strptime(EndTime, "%Y-%m-%d %H:%M"),
-                                      UserId=currentUser.UserId,
+                                      #UserId=currentUser.UserId,
+                                      UserId=currentUser,
                                       RoomId=RoomId)
 
         exists = s.query(Reservation).filter(

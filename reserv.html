@@ -2,10 +2,11 @@
 
 <head>
 	<title>Резервування аудиторій</title>
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/reserv.css">
-	<script src="reserv.js"></script>
+	<script src="reserv.js" defer></script>
 </head>
 
 <body>
@@ -89,7 +90,7 @@
 				<label for="end_time">Час закінчення:</label>
 				<input type="time" id="end_time" name="end_time" required>
 				
-				<button onclick="addRow()" type="submit">Забронювати</button>
+				<button id ="resis" type="submit">Забронювати</button>
 			</form>
 		</section>
 	</main>
