@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="index1.js" defer></script>
 	<title>Резервування аудиторій</title>
 	<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 	<meta charset="UTF-8">
@@ -54,12 +55,16 @@
 				<li><a href="login.html">Увійти</a></li>
 			</ul>
 			<ul class="nickname">
-				<li><p id = "nm"> User not logged in </p></li>
+				<li><p id = "nm1"> User not logged in </p></li>
+				<li><a id = "nm2">  </a></li>
 				<script>
 					if (localStorage.username != null) {
-					document.getElementById("nm").innerHTML = localStorage.username;
+					document.getElementById("nm1").innerHTML = localStorage.username;
+					document.getElementById("nm2").innerHTML = "Logout";
 					}
+					
 					</script>
+				
 			</ul>	
 		</nav>
 	</header>
