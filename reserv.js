@@ -7,16 +7,19 @@ document.querySelector('#resis').onclick = function(event) {
     const start_time = document.getElementById("start_time").value;
     const end_time = document.getElementById("end_time").value;
   
+    let sstart_time = start_time.replace("T", " ");
+    let eend_time = end_time.replace("T", " ");
+
+
     const id = 1;
     const userid = 1;
 
-
+    console.log(sstart_time);
     // Створюємо об'єкт з даними форми
     const formData = {
         ReservationId : id,
-        BeginTime : date,
-        EndTime : date,
-        UserId : userid,
+        BeginTime : start_time,
+        EndTime : end_time,
         RoomId : room
     };
   
@@ -37,10 +40,12 @@ document.querySelector('#resis').onclick = function(event) {
   
   
   
-  ajax("http://127.0.0.1:5000/reservation/create", "POST", formData, function(response) {
+  /*ajax("http://127.0.0.1:5000/reservation/create", "POST", formData, function(response) {
     console.log(response);
-  })
+  })*/
   
+  console.log(localStorage.username)
+
   }
 
 

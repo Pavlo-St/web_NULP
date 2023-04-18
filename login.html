@@ -6,17 +6,17 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/reg.css">
   </head>
-  <script src="log.js"></script>
+  <script src="log.js" defer></script>
   <body>
     <h1>Вхід</h1>
     <form action="submit.php" method="post">
-   <label for="email">Електронна пошта:</label>
-      <input type="email" name="email" id="email" required><br><br>
+   <label for="email">Ім'я користувача:</label>
+      <input type="text" name="username" id="username" required><br><br>
 
       <label for="password">Пароль:</label>
       <input type="password" name="password" id="password" required><br><br>
 
-      <input type="submit" value="Увійти" onclick="login()">
+      <input id = "loginis" type="submit" value="Увійти">
       <input type="submit" value="Створити аккаунт" onclick="window.location.href='register.html'">
       <input type="submit" value="Головна" onclick="window.location.href='index.html'">
     </form>

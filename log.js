@@ -1,28 +1,26 @@
-const loginForm = document.querySelector('form');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-
-loginForm.addEventListener('submit', (event) => {
+document.querySelector('#loginis').onclick = function(event) {
     event.preventDefault();
-    
-    // Отримання значень введених користувачем
-    const email = emailInput.value;
-    const password = passwordInput.value;
-    
-    // Відправка POST-запиту на сервер
-    axios.post('/login', {
-        email: email,
-        password: password
-    })
-    .then((response) => {
-        // Обробка успішної відповіді сервера
-        console.log(response.data);
-        // Перенаправлення користувача на іншу сторінку
-        window.location.href = 'index.html';
-    })
-    .catch((error) => {
-        // Обробка помилки
-        console.error(error);
-        alert('Неправильна електронна пошта або пароль');
-    });
-});
+  
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const role = "user";
+
+    fetch('http://127.0.0.1:5000/user/login', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Basic ' + btoa(username + ':' + password)
+        }
+      }).then(response => {
+        if (response.ok) {
+          localStorage.setItem('username', username)
+          localStorage.setItem('password', password)
+          localStorage.setItem('role', role)
+          window.location.href = './index.html';
+        }
+        else if (response.status === 401) {
+            alert("Wrong credentials!");
+            return;
+        }
+    }).catch(error => console.error(error));
+
+  }

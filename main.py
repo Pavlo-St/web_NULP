@@ -13,7 +13,7 @@ import bcrypt as bcrypt
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*", "methods": ["POST", "GET", "DELETE", "OPTIONS"], "allow_headers": ["Content-Type"]}})
+CORS(app, resources={r"/*": {"origins": "*", "methods": ["POST", "GET", "DELETE", "OPTIONS", "PUT"], "allow_headers": ["Content-Type", "authorization"]}})
 
 
 
@@ -46,7 +46,7 @@ def after_request(response):
     header = response.headers
     header['Access-Control-Allow-Origin'] = '*'
     header['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PUT, DELETE'
-    header['Access-Control-Allow-Headers'] = 'content-type'
+    header['Access-Control-Allow-Headers'] = 'content-type, authorization'
     return response
 
 
@@ -149,6 +149,11 @@ def createUser():
     except Exception as e:
         return jsonify({"Error": "Invalid Request, please try again."})
 
+
+@app.route("/user/login", methods=["POST"])
+@auth.login_required()
+def login():
+    return jsonify({"Success": "You are logged in successfully"})
 
 @app.route("/user/<int:userId>", methods=["GET"])
 @auth.login_required(role='Admin')
