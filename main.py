@@ -155,6 +155,10 @@ def createUser():
 def login():
     return jsonify({"Success": "You are logged in successfully"})
 
+@app.route("/user/logout", methods=["POST"])
+def logout():
+    return jsonify({"Success": "You are logged out successfully"})
+
 @app.route("/user/<int:userId>", methods=["GET"])
 @auth.login_required(role='Admin')
 def getUserById(userId):
