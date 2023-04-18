@@ -177,11 +177,11 @@ def deleteUserById(userId):
 
 # RESERVATION METHODS
 @app.route("/reservation/create", methods=["POST"])
-#@auth.login_required
+@auth.login_required
 def createReservation():
     try:
-        #currentUser = auth.current_user()
-        currentUser = request.json['UserId']
+        currentUser = auth.current_user()
+        #currentUser = request.json['UserId']
         ReservationId = request.json['ReservationId']
         BeginTime = request.json['BeginTime']
         EndTime = request.json['EndTime']
@@ -190,8 +190,7 @@ def createReservation():
         new_reservation = Reservation(ReservationId=ReservationId,
                                       BeginTime=datetime.strptime(BeginTime, "%Y-%m-%d %H:%M"),
                                       EndTime=datetime.strptime(EndTime, "%Y-%m-%d %H:%M"),
-                                      #UserId=currentUser.UserId,
-                                      UserId=currentUser,
+                                      UserId=currentUser.UserId,
                                       RoomId=RoomId)
 
         exists = s.query(Reservation).filter(

@@ -53,6 +53,14 @@
 				<li><a href="reserv.html">Зарезервувати кімнату</a></li>
 				<li><a href="login.html">Увійти</a></li>
 			</ul>
+			<ul class="nickname">
+				<li><p id = "nm"> User not logged in </p></li>
+				<script>
+					if (localStorage.username != null) {
+					document.getElementById("nm").innerHTML = localStorage.username;
+					}
+					</script>
+			</ul>	
 		</nav>
 	</header>
 	<main>

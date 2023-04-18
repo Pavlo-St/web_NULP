@@ -5,7 +5,10 @@
 	padding: 0;
 }
 
-
+nav{
+	display: flex;
+	justify-content: space-between;
+	}
 
 body {
 	font-family: Arial, sans-serif;
@@ -26,6 +29,7 @@ nav ul {
 	margin: 0;
 	padding: 0;
 }
+
 
 nav li {
 	display: inline-block;
@@ -101,6 +105,8 @@ footer {
 
 /* Адаптивні стилі */
 
+
+
 /* Стилі для пристроїв з шириною екрану менше 768px */
 @media (max-width: 767px) {
 	header {
@@ -111,6 +117,7 @@ footer {
 	
 	  nav {
 		margin-top: 20px;
+		display: block;
 	  }
 	
 	  nav ul {
@@ -127,6 +134,8 @@ footer {
 		display: block;
 		padding: 5px;
 	}
+
+	
 
 	nav a:hover {
 		background-color: #555;
@@ -154,6 +163,14 @@ footer {
 	}
 }
 
+@media (min-width: 1024)
+{
+	nav{
+	display: flex;
+	justify-content: space-between;
+	}
+}
+
 /* Стилі для пристроїв з шириною екрану від 768px до 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
 	header {
@@ -167,6 +184,8 @@ footer {
 
 	nav {
 		display: block;
+		display: flex;
+		justify-content: space-between;
 	}
 
 	nav ul {

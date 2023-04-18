@@ -72,7 +72,7 @@
 		</table>
 		<section>
 			<h2>Резервування аудиторій</h2>
-			<form action="#" method="post">
+			<form>
 				<label for="room">Аудиторія:</label>
 				<select id="room" name="room" required>
 					<option value="">Оберіть аудиторію</option>
@@ -83,14 +83,12 @@
 					<option value="5">Аудиторія 5</option>
 					<option value="6">Аудиторія 6</option>
 				</select>
-				<label for="date">Дата:</label>
-				<input type="date" id="date" name="date" required>
 				<label for="start_time">Час початку:</label>
 				<input type="datetime-local" id="start_time" name="start_time" required>
 				<label for="end_time">Час закінчення:</label>
 				<input type="datetime-local" id="end_time" name="end_time" required>
 				
-				<button id ="resis" type="submit">Забронювати</button>
+				<button id ="resis" onclick="reservat()" type="submit">Забронювати</button>
 			</form>
 		</section>
 	</main>

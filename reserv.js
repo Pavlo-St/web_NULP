@@ -1,12 +1,11 @@
 document.querySelector('#resis').onclick = function(event) {
     event.preventDefault();
-  
+
   
     const room = document.getElementById("room").value;
-    const date = document.getElementById("date").value;
     const start_time = document.getElementById("start_time").value;
     const end_time = document.getElementById("end_time").value;
-  
+    
     let sstart_time = start_time.replace("T", " ");
     let eend_time = end_time.replace("T", " ");
 
@@ -18,8 +17,8 @@ document.querySelector('#resis').onclick = function(event) {
     // Створюємо об'єкт з даними форми
     const formData = {
         ReservationId : id,
-        BeginTime : start_time,
-        EndTime : end_time,
+        BeginTime : sstart_time,
+        EndTime : eend_time,
         RoomId : room
     };
   
@@ -39,15 +38,43 @@ document.querySelector('#resis').onclick = function(event) {
   }
   
   
-  
+
   /*ajax("http://127.0.0.1:5000/reservation/create", "POST", formData, function(response) {
     console.log(response);
   })*/
-  
-  console.log(localStorage.username)
-
+ 
   }
 
+
+function reservat() {
+  const room = document.getElementById("room").value;
+  const start_time = document.getElementById("start_time").value;
+  const end_time = document.getElementById("end_time").value;
+  const username = localStorage.getItem('username');
+  const password = localStorage.getItem('password');
+
+  const sstart_time = start_time.replace("T", " ");
+  const eend_time = end_time.replace("T", " ");
+
+
+  const id = 6;
+
+  fetch(`http://127.0.0.1:5000/reservation/create`, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Basic ' + btoa(username + ':' + password),
+      'Content-Type': 'application/json'
+    },body:JSON.stringify({
+      "ReservationId" : id,
+      "BeginTime" : sstart_time,
+      "EndTime" : eend_time,
+      "RoomId" : room
+      })
+      
+    })
+    console.log(end_time)
+  }
+  
 
 function addRow() {
     var table = document.getElementById("table");
